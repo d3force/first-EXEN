@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +31,17 @@
       .attr("r", 10)
       .attr("fill", "blue");
 
+    // Добавляем подписи
+    const labels = svg.append("g")
+      .selectAll("text")
+      .data(nodes)
+      .enter().append("text")
+      .attr("x", d => d.x + 15)  // Сдвигаем текст вправо
+      .attr("y", d => d.y)        // Текст будет на уровне узлов
+      .attr("font-size", "14px")
+      .attr("fill", "black")
+      .text(d => d.id);  // Текстом будет id узла
+
     simulation.on("tick", () => {
       link
         .attr("x1", d => d.source.x)
@@ -42,6 +52,11 @@
       node
         .attr("cx", d => d.x)
         .attr("cy", d => d.y);
+
+      // Обновляем позицию подписей
+      labels
+        .attr("x", d => d.x + 15)  // Обновляем позицию текста
+        .attr("y", d => d.y);      // Обновляем позицию текста
     });
   </script>
 </body>
