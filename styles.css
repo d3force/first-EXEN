@@ -1,54 +1,76 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f4f4f4;
-  color: #333;
+:root {
+  --bg-dark: #0d1117;
+  --bg-light: #f9f9f9;
+  --accent: #ff7e00;
+  --highlight: #00ffd9;
+  --text-dark: #ffffff;
+  --text-light: #1a1a1a;
+  --font-main: 'Orbitron', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
 }
 
-header, footer {
-  background: #003049;
-  color: white;
-  text-align: center;
-  padding: 1em;
+body.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
 }
 
-.engine-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  margin: 20px;
-}
-
-svg {
-  border: 1px solid #ccc;
-  background: #fff;
-}
-
-.info-panel {
-  width: 250px;
-  background: #e9ecef;
-  padding: 1em;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #ccc;
-}
-
-.controls {
-  text-align: center;
-  margin: 20px;
+body.light {
+  background-color: var(--bg-light);
+  color: var(--text-light);
 }
 
 button {
-  margin: 5px;
-  padding: 10px 20px;
-  background: #1982c4;
-  color: white;
+  font-family: var(--font-main);
+  padding: 0.5em 1em;
+  background: var(--accent);
   border: none;
-  border-radius: 6px;
+  border-radius: 0.5em;
+  color: #fff;
   cursor: pointer;
-  font-size: 16px;
+  transition: background 0.3s ease;
 }
 
 button:hover {
-  background: #0f4c75;
+  background: #ff9900;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  padding: 1rem;
+  font-family: var(--font-main);
+}
+
+.header .logo {
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.switcher, .lang-select {
+  margin-left: 1rem;
+  background: none;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.panel, .detail-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  padding: 1em;
+  font-family: var(--font-mono);
+  color: var(--highlight);
+}
+
+/* Анимация свечи */
+@keyframes spark {
+  0% { opacity: 0; }
+  50% { opacity: 1; background-color: yellow; }
+  100% { opacity: 0; }
+}
+
+.spark {
+  animation: spark 0.3s ease-in-out;
 }
