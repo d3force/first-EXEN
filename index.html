@@ -1,40 +1,71 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>4-тактный двигатель</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engine Inside</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="main.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Интерактивная схема 4-тактного двигателя</h1>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">Engine Inside</div>
+    <nav class="nav">
+      <button class="nav-btn" data-section="home">Главная</button>
+      <button class="nav-btn" data-section="animation">Анимация</button>
+      <button class="nav-btn" data-section="mechanism">Механизм</button>
+      <button class="nav-btn" data-section="terms">Термины</button>
+    </nav>
+    <div class="controls">
+      <select id="lang-switcher">
+        <option value="ru">RU</option>
+        <option value="en">EN</option>
+      </select>
+      <button id="theme-toggle">🌙 / ☀️</button>
+    </div>
   </header>
 
-  <main>
-    <div class="engine-container">
-      <svg id="engine-svg" width="600" height="400">
-        <!-- Двигатель будет тут (добавим позже SVG-элементы через JS или вручную) -->
-      </svg>
-
-      <div class="info-panel" id="info-panel">
-        <h2>Название детали</h2>
-        <p>Наведите курсор или кликните на элемент двигателя, чтобы узнать больше.</p>
+  <!-- MAIN -->
+  <main class="main">
+    <section id="animation-section" class="engine-animation">
+      <div class="svg-container">
+        <!-- Здесь будет SVG-анимация -->
+        <object type="image/svg+xml" data="engine.svg" id="engine-svg"></object>
       </div>
-    </div>
+      <div class="animation-controls">
+        <button id="start-pause">▶️ Старт / Пауза</button>
+        <div class="cycle-buttons">
+          <button data-tact="intake">Впуск</button>
+          <button data-tact="compression">Сжатие</button>
+          <button data-tact="power">Воспламенение</button>
+          <button data-tact="exhaust">Выпуск</button>
+        </div>
+        <button id="auto-cycle">🔁 Автоцикл</button>
+        <label>
+          <input type="checkbox" id="show-labels"> Показать подписи
+        </label>
+      </div>
+    </section>
 
-    <div class="controls">
-      <button id="start-pause">Старт / Пауза</button>
-      <button id="step-back">⏮️ Назад</button>
-      <button id="step-forward">⏭️ Вперёд</button>
-      <button id="show-labels">Показать все подписи</button>
-    </div>
+    <!-- DETAIL INFO PANEL -->
+    <aside id="detail-panel" class="detail-panel hidden">
+      <h2 id="part-name">Название детали</h2>
+      <img id="part-img" src="" alt="Изображение детали">
+      <p id="part-desc">Подробное описание детали...</p>
+      <div class="part-actions">
+        <button id="view-cross-section">Показать в разрезе</button>
+        <button id="compare-part">Сравнить</button>
+      </div>
+    </aside>
   </main>
 
+  <!-- FOOTER (опционально) -->
   <footer>
-    <p>Проект на GitHub Pages — D3 + SVG + JS</p>
+    <p>© 2025 Engine Inside</p>
   </footer>
 
-  <script src="scripts.js"></script>
 </body>
 </html>
