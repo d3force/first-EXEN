@@ -1,0 +1,15 @@
+function showTooltip(name) {
+  const tooltip = document.getElementById('tooltip');
+  tooltip.innerText = name;
+  tooltip.style.display = 'block';
+}
+
+function showDetailCard(part) {
+  const card = document.getElementById('detail-card');
+  const data = partsData[part]; // содержит {name, desc, img, animation}
+  card.querySelector('.title').innerText = data.name;
+  card.querySelector('.desc').innerText = data.desc;
+  card.querySelector('img').src = data.img;
+  card.querySelector('.animation').src = data.animation;
+  card.style.display = 'block';
+}
