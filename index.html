@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Интерактивный Двигатель</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Интерактивная схема двигателя</h1>
+
+  <div id="controls">
+    <button id="toggle">Старт / Пауза</button>
+    <button id="prev">◀ Назад</button>
+    <button id="next">Вперёд ▶</button>
+    <button id="show-labels">Показать все подписи</button>
+  </div>
+
+  <div id="engine-container">
+    <svg id="engine" width="600" height="400">
+      <!-- Пример поршня -->
+      <rect id="piston" x="270" y="200" width="60" height="80" fill="#888" />
+      <circle id="crankshaft" cx="300" cy="320" r="20" fill="#444" />
+      <!-- Добавь другие элементы здесь -->
+    </svg>
+
+    <div id="info-box">Наведите на элемент</div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
