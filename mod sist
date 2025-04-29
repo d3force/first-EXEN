@@ -1,0 +1,14 @@
+const engines = {
+  'single': loadSingleCylinderSVG,
+  'diesel': loadDieselSVG,
+  'inline4': loadInline4SVG,
+  'v8': loadV8SVG,
+  'rotary': loadRotarySVG
+};
+
+document.querySelectorAll('[data-engine]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const type = btn.dataset.engine;
+    engines[type]();
+  });
+});
