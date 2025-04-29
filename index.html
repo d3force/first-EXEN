@@ -2,29 +2,38 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Интерактивный Двигатель</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4-тактный двигатель</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Интерактивная схема двигателя</h1>
+  <header>
+    <h1>Интерактивная схема 4-тактного двигателя</h1>
+  </header>
 
-  <div id="controls">
-    <button id="toggle">Старт / Пауза</button>
-    <button id="prev">◀ Назад</button>
-    <button id="next">Вперёд ▶</button>
-    <button id="show-labels">Показать все подписи</button>
-  </div>
+  <main>
+    <div class="engine-container">
+      <svg id="engine-svg" width="600" height="400">
+        <!-- Двигатель будет тут (добавим позже SVG-элементы через JS или вручную) -->
+      </svg>
 
-  <div id="engine-container">
-    <svg id="engine" width="600" height="400">
-      <!-- Пример поршня -->
-      <rect id="piston" x="270" y="200" width="60" height="80" fill="#888" />
-      <circle id="crankshaft" cx="300" cy="320" r="20" fill="#444" />
-      <!-- Добавь другие элементы здесь -->
-    </svg>
+      <div class="info-panel" id="info-panel">
+        <h2>Название детали</h2>
+        <p>Наведите курсор или кликните на элемент двигателя, чтобы узнать больше.</p>
+      </div>
+    </div>
 
-    <div id="info-box">Наведите на элемент</div>
-  </div>
+    <div class="controls">
+      <button id="start-pause">Старт / Пауза</button>
+      <button id="step-back">⏮️ Назад</button>
+      <button id="step-forward">⏭️ Вперёд</button>
+      <button id="show-labels">Показать все подписи</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>Проект на GitHub Pages — D3 + SVG + JS</p>
+  </footer>
 
   <script src="scripts.js"></script>
 </body>
