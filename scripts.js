@@ -1,13 +1,5 @@
-const nodes = [
-    { id: "A" },
-    { id: "B" },
-    { id: "C" }
-];
-
-const links = [
-    { source: "A", target: "B" },
-    { source: "B", target: "C" }
-];
+const nodes = [{ id: "A" }, { id: "B" }];
+const links = [{ source: "A", target: "B" }];
 
 const svg = d3.select("svg");
 
@@ -20,20 +12,14 @@ const link = svg.append("g")
     .selectAll("line")
     .data(links)
     .enter().append("line")
-    .attr("stroke", "#999");
+    .attr("stroke", "black");
 
 const node = svg.append("g")
     .selectAll("circle")
     .data(nodes)
     .enter().append("circle")
-    .attr("r", 20)
-    .attr("fill", "#0057D9")
-    .call(d3.drag()
-        .on("start", dragStart)
-        .on("drag", dragging)
-        .on("end", dragEnd));
-
-node.append("title").text(d => d.id);
+    .attr("r", 10)
+    .attr("fill", "blue");
 
 simulation.on("tick", () => {
     link
@@ -46,25 +32,3 @@ simulation.on("tick", () => {
         .attr("cx", d => d.x)
         .attr("cy", d => d.y);
 });
-
-function dragStart(event, d) {
-    if (!event.active) simulation.alphaTarget(0.3).restart();
-    d.fx = d.x;
-    d.fy = d.y;
-}
-
-function dragging(event, d) {
-    d.fx = event.x;
-    d.fy = event.y;
-}
-
-function dragEnd(event, d) {
-    if (!event.active) simulation.alphaTarget(0);
-    d.fx = null;
-    d.fy = null;
-}
-
-function startVisualization() {
-    // Действие, которое запускается при клике на кнопку
-    alert("Visualization started!");
-}
