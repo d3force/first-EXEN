@@ -1,46 +1,76 @@
+/* Стили для body */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
 }
 
-h1, h2, h3 {
-    text-align: center;
-    color: #0066cc;
-}
-
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.section {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.button {
-    display: inline-block;
-    background-color: #0066cc;
+/* Стили для header */
+.header-container {
+    background-color: #0057D9;
     color: white;
+    text-align: center;
+    padding: 50px 20px;
+    border-bottom: 5px solid #003f8f;
+}
+
+.main-title {
+    font-size: 3em;
+    margin: 0;
+}
+
+.intro-text {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.btn-action {
+    background-color: #ffcc00;
+    color: #003f8f;
     padding: 10px 20px;
-    text-decoration: none;
+    border: none;
     border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-action:hover {
+    background-color: #ff9900;
+}
+
+/* Стили для visualization-section */
+.visualization-section {
+    padding: 40px 20px;
+    background-color: #ffffff;
     text-align: center;
 }
 
-.button:hover {
-    background-color: #004d99;
+.visualization-section svg {
+    border: 2px solid #ccc;
+    margin-top: 20px;
 }
 
-svg {
-    margin-top: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+/* Стили для footer */
+footer {
+    background-color: #003f8f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Анимация для кнопки */
+@keyframes buttonClick {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.btn-action:active {
+    animation: buttonClick 0.3s;
 }
